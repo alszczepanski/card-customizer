@@ -16,13 +16,10 @@ export default {
     setup() {
         const activeRoute = ref("");
         const route = useRoute();
-
-        watch(
-            () => route,
-            async ({ path }) => activeRoute.value = path,
-            { immediate: true }
-        );
-        return { activeRoute };
+        watch(route, ({ path }) => {
+            activeRoute.value = path;
+        }, { immediate: true, deep: true })
+        return { activeRoute }
     },
 };
 </script>
@@ -32,14 +29,14 @@ export default {
         <el-row>
             <el-col>
                 <el-menu @open="handleOpen" @close="handleClose">
-                     <el-menu-item index="1">
-                        <NavLink to="/" text="Strona startowa" active="true" />
+                    <el-menu-item index="1">
+                        <NavLink to="/" text="Strona startowa" :active="activeRoute === '/'" />
                     </el-menu-item>
                     <el-menu-item index="2">
-                        <NavLink to="/your-cards" text="Twoje wizytówki" />
+                        <NavLink to="/your-cards" text="Twoje wizytówki" :active="activeRoute === '/your-cards'" />
                     </el-menu-item>
                     <el-menu-item index="3">
-                        <NavLink to="/creator" text="Stwórz wizytówkę" />
+                        <NavLink to="/creator" text="Stwórz wizytówkę" :active="activeRoute === '/creator'" />
                     </el-menu-item>
                 </el-menu>
             </el-col>
