@@ -1,20 +1,20 @@
 <script>
-import styles from './NavLink.module.css';
-
 export default {
-    props: {
-        to: String,
-        text: String,
-        active: Boolean,
-    },
-    data() {
-        return {
-            styles,
-        };
-    },
+  props: {
+    to: String,
+    text: String,
+    active: Boolean,
+  },
 };
 </script>
 
 <template>
-    <router-link :class="[active ? styles.active : styles.link]" :to="to">{{text}}</router-link>
+  <li class="nav-item">
+    <router-link
+      class="nav-link"
+      :class="active ? 'active': 'text-secondary'"
+      :to="to"
+      >{{ text }}</router-link
+    >
+  </li>
 </template>
