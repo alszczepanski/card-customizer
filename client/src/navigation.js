@@ -5,12 +5,20 @@ import {
   CreateBusinessCard,
   HomePage,
   LoginPage,
+  RegisterPage
 } from "./pages";
 
 export const routes = [
   {
     path: "/login",
     component: LoginPage,
+    meta: {
+      layout: "anonymous",
+    },
+  },
+  {
+    path: "/register",
+    component: RegisterPage,
     meta: {
       layout: "anonymous",
     },
