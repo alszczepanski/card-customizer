@@ -3,3 +3,10 @@
     height: 100%;
     border: 0.5px solid black;
 }
+
+.renderedItem {
+    background-color: red;
+    width: 75px;
+    height: 55px;
+    cursor: pointer;
+} 
