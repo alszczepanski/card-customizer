@@ -4,7 +4,13 @@ const useDropzone = defineStore({
   id: "cardCreator",
   state: () => ({ dropzoneBlocks: [] }), // { id: block1, placedItem: { type: 'text' | 'photo', width: , height, base64?: photo, text: string } }
   actions: {
-    onDrop(blockId, placedItem) {
+    setItem(blockId, placedItem) {
+      console.log(placedItem)
+      if (placedItem.previousBlockId) {
+        this.dropzoneBlocks = this.dropzoneBlocks.map((block) =>
+          block.id === placedItem.previousBlockId ? ({ ...block, placedItem: undefined }) : block
+        );
+      }
       if (!this.dropzoneBlocks.find((block) => block.id === blockId)) {
         this.dropzoneBlocks = [
           ...this.dropzoneBlocks,
