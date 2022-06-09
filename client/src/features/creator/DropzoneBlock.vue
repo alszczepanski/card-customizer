@@ -1,6 +1,6 @@
 <template>
     <div :class="styles.block" @drop="handleDrop" @dragenter.prevent @dragover.prevent>
-        <div v-if="placedItem" :class="styles.renderedItem"> {{ placedItem.width }} {{ placedItem.height }}</div>
+      <DraggableNode v-if="placedItem" :type="placedItem.type" />
     </div>
 </template>
 
@@ -8,8 +8,10 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { defineProps, ref, watch } from 'vue';
-import styles from './DropzoneBlock.module.css'
 import useDropzone from './store/useDropzone';
+import { DraggableNode } from './draggable';
+import styles from './DropzoneBlock.module.css'
+
 const dropzoneStore = useDropzone();
 const { onDrop, getItem } = dropzoneStore;
 const { dropzoneBlocks } = storeToRefs(dropzoneStore)
