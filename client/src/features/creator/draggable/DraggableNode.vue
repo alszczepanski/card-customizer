@@ -8,13 +8,14 @@ import { defineProps } from 'vue';
 import styles from './Draggable.module.css'
 
 const props = defineProps({
-    type: String
+    type: String,
+    dropzoneBlockId: String,
 });
 
 const onDragStart = (event, itemProperties) => {
     const { clientWidth: width, clientHeight: height } = event.currentTarget
     event.dataTransfer.dropEffect = "move"
-    event.dataTransfer.setData("currentTarget", JSON.stringify({ width, height, ...itemProperties }))
+    event.dataTransfer.setData("currentTarget", JSON.stringify({ width, height, ...itemProperties, previousBlockId: props.dropzoneBlockId }))
 }
 
 </script>
