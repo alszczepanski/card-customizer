@@ -2,4 +2,4 @@
 export default {};
 </script>
 
-<template>KREATOR</template>
+<template>TWOJE WIZYTÓWKI</template>
