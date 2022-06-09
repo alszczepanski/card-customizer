@@ -1,5 +1,7 @@
-<script>
-  export default {};
+<script setup>
+import { CardCreator } from "@/features/creator";
 </script>
 
-<template>TWOJE WIZYTÓWKI</template>
+<template>
+  <CardCreator />
+</template> 

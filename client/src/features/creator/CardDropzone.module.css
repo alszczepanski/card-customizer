@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem;
+}
+
+.card {
+    background-color: grey;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    max-width: 40rem;
+    display: flex;
+}
+
+.column {
+    width: 10%;
+    height: 10%;
+} 
