@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 
-const useDropzone = defineStore({
+const cardCreator = defineStore({
   id: "cardCreator",
-  state: () => ({ dropzoneBlocks: [] }), // { id: block1, placedItem: { type: 'text' | 'photo', width: , height, base64?: photo, text: string } }
+  state: () => ({ dropzoneBlocks: [], color: '#ffffff' }), // { id: block1, placedItem: { type: 'text' | 'photo', width: , height, base64?: photo, text: string } }
   actions: {
     setItem(blockId, placedItem) {
       if (placedItem.previousBlockId) {
@@ -29,10 +29,16 @@ const useDropzone = defineStore({
     getItem(blockId) {
       return this.dropzoneBlocks.find(block => block.id === blockId)?.placedItem;
     },
+    setCardColor(color) {
+      this.color = color;
+    },
+    getCardColor() {
+      return this.color;
+    },
     onSave() {
       //TODO
     },
   },
 });
 
-export default useDropzone;
+export default cardCreator;

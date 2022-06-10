@@ -9,10 +9,10 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import styles from './Toolbox.module.css'
-import useDropzone from '../store/useDropzone';
+import useCardCreator from '../store/useCardCreator';
 import PlacedItem from './PlacedItem.vue';
 
-const store = useDropzone();
+const store = useCardCreator();
 const { updateItem } = store;
 const { dropzoneBlocks } = storeToRefs(store);
 

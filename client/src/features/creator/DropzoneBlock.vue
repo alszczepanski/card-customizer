@@ -8,11 +8,13 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { defineProps, ref, watch } from 'vue';
-import useDropzone from './store/useDropzone';
+
+import useCardCreator from './store/useCardCreator';
 import { DraggableNode } from './draggable';
+
 import styles from './DropzoneBlock.module.css'
 
-const dropzoneStore = useDropzone();
+const dropzoneStore = useCardCreator();
 const { setItem, getItem } = dropzoneStore;
 const { dropzoneBlocks } = storeToRefs(dropzoneStore);
 
