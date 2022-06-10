@@ -1,5 +1,5 @@
 <template>
-    <div :class="styles.toolbox">TOOLBOX
+    <div :class="styles.toolbox">
         <div v-for="block of dropzoneBlocks" :key="block.id">
             <PlacedItem v-if="block.placedItem" :item="block.placedItem" :onChange="(item) => handleSubmit(item, block.id)" />
         </div>
