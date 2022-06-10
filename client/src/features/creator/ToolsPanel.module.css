@@ -1,12 +1,18 @@
 .toolsPanel {
-    background-color: silver;
     width: 100%;
     height: 100%;
+    background-color: white;
+    row-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.draggable {
-    background-color: red;
-    width: 75px;
-    height: 55px;
-    cursor: pointer;
-} 
+.colorPicker {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
