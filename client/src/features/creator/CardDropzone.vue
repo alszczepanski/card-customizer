@@ -10,8 +10,10 @@
 
 <script setup>
 import { ref } from "vue";
+
 import styles from "./CardDropzone.module.css";
 import DropzoneBlock from "./DropzoneBlock.vue";
+
 const cols = ref([...Array(10).keys()]);
 const rows = ref([...Array(10).keys()]);
 </script> 
