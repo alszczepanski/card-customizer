@@ -1,6 +1,6 @@
 <template>
     <div :class="styles.block" @drop="handleDrop" @dragenter.prevent @dragover.prevent>
-      <DraggableNode v-if="placedItem" :type="placedItem.type" />
+       <DraggableNode v-if="placedItem" :item="placedItem" :dropzone-block-id="props.id" />
     </div>
 </template>
 

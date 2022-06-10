@@ -1,8 +1,8 @@
 <template>
     <div :class="styles.toolsPanel">
         <h1>Tools Panel</h1>
-<DraggableNode type="photo" />
-        <DraggableNode type="text" />
+        <DraggableNode :item="{ type: 'photo' }" />
+        <DraggableNode :item="{ type: 'text' }" />
     </div>
 </template>
 

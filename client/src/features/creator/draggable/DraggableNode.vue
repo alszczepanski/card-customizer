@@ -1,6 +1,6 @@
 <template>
-    <img v-if="props.type === 'photo'" :class="styles.img" src="./61.jpg" draggable="true" @dragstart="onDragStart($event, { type: 'photo' })" />
-    <div v-if="props.type === 'text'" draggable="true" @dragstart="onDragStart($event, { type: 'text', value: 'TEXT' })">TEXT</div>
+   <img v-if="props.item.type === 'photo'" :class="styles.img" src="./61.jpg" draggable="true" @dragstart="onDragStart($event, { type: 'photo' })" />
+    <div v-if="props.item.type === 'text'" draggable="true" @dragstart="onDragStart($event, { type: 'text', value: props.item.value || 'TEXT' })">{{ props.item.value || 'TEXT' }}</div>
 </template>
 
 <script setup>
@@ -8,7 +8,7 @@ import { defineProps } from 'vue';
 import styles from './Draggable.module.css'
 
 const props = defineProps({
-    type: String,
+    item: Object,
     dropzoneBlockId: String,
 });
 
