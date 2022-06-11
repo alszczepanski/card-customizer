@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
-import useAuthStore from "./stores/authStore";
+
+import useAuthStore from "@/stores/authStore";
+import { restoreUser } from "@/services/auth";
+
 import {
   BusinessCards,
   CreateBusinessCard,
   HomePage,
   LoginPage,
-  RegisterPage
+  RegisterPage,
 } from "./pages";
 
 export const routes = [
@@ -51,14 +54,20 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach(async (to) => {
-    console.log(to.path)
+router.beforeEach(async (to, from) => {
   const authRequired = !["/login", "/register"].includes(to.path);
   const auth = useAuthStore();
 
-  if (authRequired && !auth.user) {
-    return "/login";
-  }
+  return await restoreUser()
+    .then(({ data }) => auth.setUser(data))
+    .then(() => {
+      if (!authRequired) return from.path;
+    })
+    .catch(() => {
+      if (authRequired) {
+        return "/login";
+      }
+    });
 });
 
 export default router;
