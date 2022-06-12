@@ -18,6 +18,6 @@ import DropzoneBlock from "./DropzoneBlock.vue";
 
 const { getCardColor } = useCardCreator();
 
-const cols = ref([...Array(10).keys()]);
-const rows = ref([...Array(10).keys()]);
+const cols = ref([...Array(20).keys()]);
+const rows = ref([...Array(20).keys()]);
 </script> 

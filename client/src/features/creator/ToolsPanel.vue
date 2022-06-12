@@ -9,18 +9,16 @@
             <h6>Przeciągnij zdjęcie wizytówki</h6>
             <DraggableNode :item="{ type: 'photo', src: uploadedPhoto }" />
         </div>
-
         <h6>Przeciągnij tekst wizytówki</h6>
         <DraggableNode :item="{ type: 'text' }" />
-
         <div :class="styles.colorPicker">
             <label for="colorInput" class="form-label">Ustaw kolor wizytówki</label>
             <input type="color" class="form-control form-control-color" id="colorInput" value="#ffffff"
                 @change="handleSetColor" />
         </div>
-        </div>
+        <button @click="handleSaveCard" class="btn btn-light">Zapisz wizytówkę</button>
+    </div>
 </template>
-
 
 <script setup>
 import { ref } from "vue";
@@ -30,7 +28,7 @@ import useCardCreator from "./store/useCardCreator";
 
 import styles from "./ToolsPanel.module.css";
 
-const { setCardColor } = useCardCreator();
+const { setCardColor, color, dropzoneBlocks } = useCardCreator();
 
 const uploadedPhoto = ref();
 
@@ -40,4 +38,6 @@ const addfile = (event) =>
         event.target.files[0],
         (base64) => (uploadedPhoto.value = base64)
     );
+
+const handleSaveCard = () => console.log(JSON.stringify({ color, placedItems: dropzoneBlocks }))
 </script>
