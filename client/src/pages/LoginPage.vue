@@ -1,3 +1,10 @@
+<script setup>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+import { login } from "@/services/auth";
+import { setItem } from "@/services/localstorage";
+
 const formException = ref();
 const router = useRouter();
 const handleSubmit = (e) => {
