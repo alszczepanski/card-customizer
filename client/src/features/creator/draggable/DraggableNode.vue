@@ -2,7 +2,7 @@
     <img v-if="props.item.type === 'photo'" :class="styles.img" :style="{
         width: (props.item?.width || 125) + 'px',
         height: (props.item?.height || 125) + 'px',
-    }" src="./61.jpg" draggable="true" @dragstart="onDragStart($event, { type: 'photo' })" />
+   }" :src="props.item?.src" draggable="true" @dragstart="onDragStart($event, { type: 'photo', src: props.item?.src })" />
     <div v-if="props.item.type === 'text'" :class="styles.text" :style="{
         width: (props.item?.width || 75) + 'px',
         height: (props.item?.height || 35) + 'px',

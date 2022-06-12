@@ -2,8 +2,7 @@
     <div :class="styles.container">
         <div class="form-group">
             <label for="heightinput">Wysokość</label>
-            <input v-model="height" type="text" id="heightinput" class="form-control form-control-sm"
-                placeholder="Wysokość" aria-label="Wysokość" aria-describedby="addon-wrapping">
+<input v-model="width" type="text" id="widthtinput" class="form-control form-control-sm" placeholder="Wysokość" aria-label="Wysokość" aria-describedby="addon-wrapping">
         </div>
         <div class="form-group">
             <label for="widthtinput">Szerokość</label>
